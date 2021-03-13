@@ -2,6 +2,7 @@ package company.dotin.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Table(name = "employe")
 @Entity(name = "employe")
@@ -14,12 +15,13 @@ public class Employe implements Serializable {
     @Column(columnDefinition = "varchar2(20)")
     private String family;
     @ManyToOne
-    @JoinColumn(name = "manager-Id")
+    @JoinColumn(name = "manager_Id")
     private Employe manager;
     @ManyToOne
     @JoinColumn(name = "roleId")
     private CategoryElement role;
-
+    @ManyToMany(mappedBy = "recivers")
+    private List<Email> emailList;
     public Employe() {
     }
 

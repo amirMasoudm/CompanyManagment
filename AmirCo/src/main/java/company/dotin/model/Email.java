@@ -16,9 +16,9 @@ public class Email implements Serializable {
     private Employe sender;
 
     @ManyToMany
-    @JoinTable(name = "junkEmaileAndEmploye", joinColumns = {
-            @JoinColumn(name = "Email-ID", referencedColumnName = "id")},
-            inverseJoinColumns = @JoinColumn(name = "empoye-Id", referencedColumnName = "id"))
+    @JoinTable(name = "juncEmail_Employe", joinColumns = {
+            @JoinColumn(name = "Email_ID", referencedColumnName = "id")},
+            inverseJoinColumns = @JoinColumn(name = "empoye_Id", referencedColumnName = "id"))
     private List<Employe> recivers;
 
     public Email() {

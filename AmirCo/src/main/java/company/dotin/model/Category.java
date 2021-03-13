@@ -5,17 +5,17 @@ import java.io.Serializable;
 
 @Table(name = "category")
 @Entity(name = "category")
-public class CategoryEmail implements Serializable {
+public class Category implements Serializable {
     @Id()
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column(columnDefinition = "varchar2(10)")
     private String name;
 
-    public CategoryEmail() {
+    public Category() {
     }
 
-    public CategoryEmail(int id, String name) {
+    public Category(int id, String name) {
         this.id = id;
         this.name = name;
     }

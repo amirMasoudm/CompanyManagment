@@ -16,12 +16,12 @@ public class CategoryElement implements Serializable {
     private int code;
     @ManyToOne
     @JoinColumn(name = "category_Id")
-    private CategoryEmail category;
+    private Category category;
 
     public CategoryElement() {
     }
 
-    public CategoryElement(int id, String persianName, int code, CategoryEmail category) {
+    public CategoryElement(int id, String persianName, int code, Category category) {
         this.id = id;
         this.persianName = persianName;
         this.code = code;
@@ -52,11 +52,11 @@ public class CategoryElement implements Serializable {
         this.code = code;
     }
 
-    public CategoryEmail getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(CategoryEmail category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 }
