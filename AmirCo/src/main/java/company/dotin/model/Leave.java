@@ -4,71 +4,71 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-@Table(name = "leave")
-@Entity(name = "leave")
+@Table(name = "t_leave")
+@Entity(name = "t_leave")
 public class Leave implements Serializable {
     @Id()
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int c_id;
     @Column(columnDefinition = "date")
-    private Date fromDate;
+    private Date c_fromDate;
     @Column(columnDefinition = "date")
-    private Date toDate;
-    @ManyToOne
-    @JoinColumn(name = "statusId")
-    private CategoryElement status;
-    @ManyToOne
-    @JoinColumn(name = "employeId")
-    private Employe employe;
+    private Date c_toDate;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "c_statusId")
+    private CategoryElement c_status;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "c_employeId")
+    private Employe c_employe;
 
     public Leave() {
     }
 
-    public Leave(int id, Date fromDate, Date toDate, CategoryElement status, Employe employe) {
-        this.id = id;
-        this.fromDate = fromDate;
-        this.toDate = toDate;
-        this.status = status;
-        this.employe = employe;
+    public Leave(int c_id, Date c_fromDate, Date c_toDate, CategoryElement c_status, Employe c_employe) {
+        this.c_id = c_id;
+        this.c_fromDate = c_fromDate;
+        this.c_toDate = c_toDate;
+        this.c_status = c_status;
+        this.c_employe = c_employe;
     }
 
-    public int getId() {
-        return id;
+    public int getC_id() {
+        return c_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setC_id(int c_id) {
+        this.c_id = c_id;
     }
 
-    public Date getFromDate() {
-        return fromDate;
+    public Date getC_fromDate() {
+        return c_fromDate;
     }
 
-    public void setFromDate(Date fromDate) {
-        this.fromDate = fromDate;
+    public void setC_fromDate(Date c_fromDate) {
+        this.c_fromDate = c_fromDate;
     }
 
-    public Date getToDate() {
-        return toDate;
+    public Date getC_toDate() {
+        return c_toDate;
     }
 
-    public void setToDate(Date toDate) {
-        this.toDate = toDate;
+    public void setC_toDate(Date c_toDate) {
+        this.c_toDate = c_toDate;
     }
 
-    public CategoryElement getStatus() {
-        return status;
+    public CategoryElement getC_status() {
+        return c_status;
     }
 
-    public void setStatus(CategoryElement status) {
-        this.status = status;
+    public void setC_status(CategoryElement c_status) {
+        this.c_status = c_status;
     }
 
-    public Employe getEmploye() {
-        return employe;
+    public Employe getC_employe() {
+        return c_employe;
     }
 
-    public void setEmploye(Employe employe) {
-        this.employe = employe;
+    public void setC_employe(Employe c_employe) {
+        this.c_employe = c_employe;
     }
 }

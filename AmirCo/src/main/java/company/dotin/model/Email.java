@@ -4,62 +4,63 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-@Table(name = "email")
-@Entity(name = "email")
+@Table(name = "t_email")
+@Entity(name = "t_email")
 public class Email implements Serializable {
     @Id()
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int c_id;
     @Column(columnDefinition = "varchar2(50)")
-    private String subject;
+    private String c_subject;
     @ManyToOne
-    private Employe sender;
+    private Employe c_sender;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "juncEmail_Employe", joinColumns = {
             @JoinColumn(name = "Email_ID", referencedColumnName = "id")},
             inverseJoinColumns = @JoinColumn(name = "empoye_Id", referencedColumnName = "id"))
-    private List<Employe> recivers;
+    private List<Employe> c_recivers;
 
     public Email() {
     }
 
-    public Email(int id, String subject, Employe sender, List<Employe> recivers) {
-        this.id = id;
-        this.subject = subject;
-        this.sender = sender;
-        this.recivers = recivers;
+    public Email(int c_id, String c_subject, Employe c_sender, List<Employe> c_recivers) {
+        this.c_id = c_id;
+        this.c_subject = c_subject;
+        this.c_sender = c_sender;
+        this.c_recivers = c_recivers;
     }
 
-    public int getId() {
-        return id;
+    public int getC_id() {
+        return c_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setC_id(int c_id) {
+        this.c_id = c_id;
     }
 
-    public String getSubject() {
-        return subject;
+    public String getC_subject() {
+        return c_subject;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public void setC_subject(String c_subject) {
+        this.c_subject = c_subject;
     }
 
-    public Employe getSender() {
-        return sender;
+    public Employe getC_sender() {
+        return c_sender;
     }
 
-    public void setSender(Employe sender) {
-        this.sender = sender;
+    public void setC_sender(Employe c_sender) {
+        this.c_sender = c_sender;
     }
 
-    public List<Employe> getRecivers() {
-        return recivers;
+    public List<Employe> getC_recivers() {
+        return c_recivers;
     }
 
-    public void setRecivers(List<Employe> recivers) {
-        this.recivers = recivers;
+    public void setC_recivers(List<Employe> c_recivers) {
+        this.c_recivers = c_recivers;
     }
 }
+

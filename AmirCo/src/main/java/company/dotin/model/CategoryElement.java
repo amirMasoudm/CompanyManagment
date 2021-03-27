@@ -1,62 +1,67 @@
 package company.dotin.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jdk.nashorn.internal.ir.annotations.Ignore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-@Table(name = "categoryElement")
-@Entity(name = "categoryElement")
+@Table(name = "t_categoryElement")
+@Entity(name = "t_categoryElement")
 public class CategoryElement implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @JsonIgnore
+    private int c_id;
     @Column(columnDefinition = "varchar2(20)")
-    private String persianName;
+    private String c_persianName;
     @Column(columnDefinition = "number")
-    private int code;
-    @ManyToOne
-    @JoinColumn(name = "category_Id")
-    private Category category;
+    private int c_code;
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "c_category_Id")
+    private Category c_category;
 
     public CategoryElement() {
     }
 
-    public CategoryElement(int id, String persianName, int code, Category category) {
-        this.id = id;
-        this.persianName = persianName;
-        this.code = code;
-        this.category = category;
+    public CategoryElement(int c_id, String c_persianName, int c_code, Category c_category) {
+        this.c_id = c_id;
+        this.c_persianName = c_persianName;
+        this.c_code = c_code;
+        this.c_category = c_category;
     }
 
-    public int getId() {
-        return id;
+    public int getC_id() {
+        return c_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setC_id(int c_id) {
+        this.c_id = c_id;
     }
 
-    public String getPersianName() {
-        return persianName;
+    public String getC_persianName() {
+        return c_persianName;
     }
 
-    public void setPersianName(String persianName) {
-        this.persianName = persianName;
+    public void setC_persianName(String c_persianName) {
+        this.c_persianName = c_persianName;
     }
 
-    public int getCode() {
-        return code;
+    public int getC_code() {
+        return c_code;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setC_code(int c_code) {
+        this.c_code = c_code;
     }
 
-    public Category getCategory() {
-        return category;
+    public Category getC_category() {
+        return c_category;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setC_category(Category c_category) {
+        this.c_category = c_category;
     }
 }
