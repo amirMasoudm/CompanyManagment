@@ -16,9 +16,9 @@ public class Email implements Serializable {
     private Employe c_sender;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "juncEmail_Employe", joinColumns = {
-            @JoinColumn(name = "Email_ID", referencedColumnName = "id")},
-            inverseJoinColumns = @JoinColumn(name = "empoye_Id", referencedColumnName = "id"))
+    @JoinTable(name = "t_juncEmail_Employe", joinColumns = {
+            @JoinColumn(name = "Email_ID", referencedColumnName = "c_id")},
+            inverseJoinColumns = @JoinColumn(name = "empoye_Id", referencedColumnName = "c_id"))
     private List<Employe> c_recivers;
 
     public Email() {
