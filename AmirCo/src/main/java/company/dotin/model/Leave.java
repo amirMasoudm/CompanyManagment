@@ -9,7 +9,7 @@ import java.util.Date;
 public class Leave implements Serializable {
     @Id()
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int c_id;
+    private int id;
     @Column(columnDefinition = "date")
     private Date c_fromDate;
     @Column(columnDefinition = "date")
@@ -24,20 +24,20 @@ public class Leave implements Serializable {
     public Leave() {
     }
 
-    public Leave(int c_id, Date c_fromDate, Date c_toDate, CategoryElement c_status, Employe c_employe) {
-        this.c_id = c_id;
+    public Leave(int id, Date c_fromDate, Date c_toDate, CategoryElement c_status, Employe c_employe) {
+        this.id = id;
         this.c_fromDate = c_fromDate;
         this.c_toDate = c_toDate;
         this.c_status = c_status;
         this.c_employe = c_employe;
     }
 
-    public int getC_id() {
-        return c_id;
+    public int getId() {
+        return id;
     }
 
-    public void setC_id(int c_id) {
-        this.c_id = c_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Date getC_fromDate() {

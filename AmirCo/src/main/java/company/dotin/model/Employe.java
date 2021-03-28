@@ -2,6 +2,7 @@ package company.dotin.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Table(name = "t_employe")
@@ -9,13 +10,15 @@ import java.util.List;
 public class Employe implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int c_id;
+    private int id;
     @Column(columnDefinition = "varchar2(20)")
     private String c_name;
     @Column(columnDefinition = "varchar2(20)")
     private String c_family;
-    @Column(columnDefinition = "varchar2(20)")
-    private int c_actication;
+    @Column()
+    private boolean c_actication;
+    @Column(columnDefinition = "date")
+    private Date c_deleteDate;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "c_manager_Id")
     private Employe manager;
@@ -28,22 +31,39 @@ public class Employe implements Serializable {
     public Employe() {
     }
 
-    public Employe(int c_id, String c_name, String c_family, int c_actication, Employe manager, CategoryElement c_role, int c_version) {
-        this.c_id = c_id;
+    public Employe(int id, String c_name, String c_family, boolean c_actication, Date c_deleteDate, Employe manager, CategoryElement c_role, int c_version) {
+        this.id = id;
         this.c_name = c_name;
         this.c_family = c_family;
         this.c_actication = c_actication;
+        this.c_deleteDate = c_deleteDate;
         this.manager = manager;
         this.c_role = c_role;
         this.c_version = c_version;
     }
 
-    public int getC_id() {
-        return c_id;
+    public int getId() {
+        return id;
     }
 
-    public void setC_id(int c_id) {
-        this.c_id = c_id;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public boolean isC_actication() {
+        return c_actication;
+    }
+
+    public void setC_actication(boolean c_actication) {
+        this.c_actication = c_actication;
+    }
+
+    public Date getC_deleteDate() {
+        return c_deleteDate;
+    }
+
+    public void setC_deleteDate(Date c_deleteDate) {
+        this.c_deleteDate = c_deleteDate;
     }
 
     public String getC_name() {
@@ -60,14 +80,6 @@ public class Employe implements Serializable {
 
     public void setC_family(String c_family) {
         this.c_family = c_family;
-    }
-
-    public int getC_actication() {
-        return c_actication;
-    }
-
-    public void setC_actication(int c_actication) {
-        this.c_actication = c_actication;
     }
 
     public Employe getManager() {

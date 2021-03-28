@@ -10,7 +10,7 @@ import java.sql.Blob;
 public class Attachment implements Serializable {
     @Id()
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int c_id;
+    private int id;
     @Column(columnDefinition = "blob")
     private Blob c_attachmentFile;
     @ManyToOne(fetch = FetchType.LAZY)
@@ -19,18 +19,18 @@ public class Attachment implements Serializable {
     public Attachment() {
     }
 
-    public Attachment(int c_id, Blob c_attachmentFile, Email c_email) {
-        this.c_id = c_id;
+    public Attachment(int id, Blob c_attachmentFile, Email c_email) {
+        this.id = id;
         this.c_attachmentFile = c_attachmentFile;
         this.c_email = c_email;
     }
 
-    public int getC_id() {
-        return c_id;
+    public int getId() {
+        return id;
     }
 
-    public void setC_id(int c_id) {
-        this.c_id = c_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Blob getC_attachmentFile() {

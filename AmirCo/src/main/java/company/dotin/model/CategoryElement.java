@@ -13,7 +13,7 @@ public class CategoryElement implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonIgnore
-    private int c_id;
+    private int id;
     @Column(columnDefinition = "varchar2(20)")
     private String c_persianName;
     @Column(columnDefinition = "number")
@@ -26,19 +26,19 @@ public class CategoryElement implements Serializable {
     public CategoryElement() {
     }
 
-    public CategoryElement(int c_id, String c_persianName, int c_code, Category c_category) {
-        this.c_id = c_id;
+    public CategoryElement(int id, String c_persianName, int c_code, Category c_category) {
+        this.id = id;
         this.c_persianName = c_persianName;
         this.c_code = c_code;
         this.c_category = c_category;
     }
 
-    public int getC_id() {
-        return c_id;
+    public int getId() {
+        return id;
     }
 
-    public void setC_id(int c_id) {
-        this.c_id = c_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getC_persianName() {

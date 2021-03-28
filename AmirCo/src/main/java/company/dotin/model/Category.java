@@ -8,24 +8,24 @@ import java.io.Serializable;
 public class Category implements Serializable {
     @Id()
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int c_id;
+    private int id;
     @Column(columnDefinition = "varchar2(10)")
     private String c_name;
 
     public Category() {
     }
 
-    public Category(int c_id, String c_name) {
-        this.c_id = c_id;
+    public Category(int id, String c_name) {
+        this.id = id;
         this.c_name = c_name;
     }
 
-    public int getC_id() {
-        return c_id;
+    public int getId() {
+        return id;
     }
 
-    public void setC_id(int c_id) {
-        this.c_id = c_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getC_name() {

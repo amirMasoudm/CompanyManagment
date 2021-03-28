@@ -9,7 +9,7 @@ import java.util.List;
 public class Email implements Serializable {
     @Id()
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int c_id;
+    private int id;
     @Column(columnDefinition = "varchar2(50)")
     private String c_subject;
     @ManyToOne
@@ -17,26 +17,26 @@ public class Email implements Serializable {
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "t_juncEmail_Employe", joinColumns = {
-            @JoinColumn(name = "Email_ID", referencedColumnName = "c_id")},
-            inverseJoinColumns = @JoinColumn(name = "empoye_Id", referencedColumnName = "c_id"))
+            @JoinColumn(name = "Email_ID", referencedColumnName = "id")},
+            inverseJoinColumns = @JoinColumn(name = "empoye_Id", referencedColumnName = "id"))
     private List<Employe> c_recivers;
 
     public Email() {
     }
 
-    public Email(int c_id, String c_subject, Employe c_sender, List<Employe> c_recivers) {
-        this.c_id = c_id;
+    public Email(int id, String c_subject, Employe c_sender, List<Employe> c_recivers) {
+        this.id = id;
         this.c_subject = c_subject;
         this.c_sender = c_sender;
         this.c_recivers = c_recivers;
     }
 
-    public int getC_id() {
-        return c_id;
+    public int getId() {
+        return id;
     }
 
-    public void setC_id(int c_id) {
-        this.c_id = c_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getC_subject() {
