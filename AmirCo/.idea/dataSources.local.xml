@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="@localhost" uuid="5457e2c8-1c46-47ed-a69c-a1c924f3b7fe">
+    <data-source name="orcl" uuid="8d683e4b-1856-4da7-852a-16494763d50c">
       <database-info product="Oracle" version="Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production&#10;Version 19.3.0.0.0" jdbc-version="4.2" driver-name="Oracle JDBC driver" driver-version="21.1.0.0.0" dbms="ORACLE" exact-version="19.0.0.0.0" exact-driver-version="21.1">
         <extra-name-characters>$#</extra-name-characters>
         <identifier-quote-string>&quot;</identifier-quote-string>
@@ -18,7 +18,7 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
-    <data-source name="orcl" uuid="8d683e4b-1856-4da7-852a-16494763d50c">
+    <data-source name="orclcrud" uuid="95b6b719-1e6e-40dc-91db-e139081363f6">
       <database-info product="Oracle" version="Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production&#10;Version 19.3.0.0.0" jdbc-version="4.2" driver-name="Oracle JDBC driver" driver-version="21.1.0.0.0" dbms="ORACLE" exact-version="19.0.0.0.0" exact-driver-version="21.1">
         <extra-name-characters>$#</extra-name-characters>
         <identifier-quote-string>&quot;</identifier-quote-string>

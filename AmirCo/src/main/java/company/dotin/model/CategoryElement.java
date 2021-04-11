@@ -12,9 +12,9 @@ import java.util.List;
 public class CategoryElement implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @JsonIgnore
+//    @JsonIgnore
     private int id;
-    @Column(columnDefinition = "varchar2(20)")
+    @Column(columnDefinition = "varchar2(255)")
     private String c_persianName;
     @Column(columnDefinition = "number")
     private int c_code;
@@ -24,6 +24,12 @@ public class CategoryElement implements Serializable {
     private Category c_category;
 
     public CategoryElement() {
+    }
+
+    public CategoryElement(String c_persianName, int c_code, Category c_category) {
+        this.c_persianName = c_persianName;
+        this.c_code = c_code;
+        this.c_category = c_category;
     }
 
     public CategoryElement(int id, String c_persianName, int c_code, Category c_category) {

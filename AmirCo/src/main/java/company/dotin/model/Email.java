@@ -6,10 +6,7 @@ import java.util.List;
 
 @Table(name = "t_email")
 @Entity(name = "t_email")
-public class Email implements Serializable {
-    @Id()
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+public class Email extends Common implements Serializable{
     @Column(columnDefinition = "varchar2(50)")
     private String c_subject;
     @ManyToOne
@@ -24,19 +21,10 @@ public class Email implements Serializable {
     public Email() {
     }
 
-    public Email(int id, String c_subject, Employe c_sender, List<Employe> c_recivers) {
-        this.id = id;
+    public Email(String c_subject, Employe c_sender, List<Employe> c_recivers) {
         this.c_subject = c_subject;
         this.c_sender = c_sender;
         this.c_recivers = c_recivers;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getC_subject() {
@@ -63,4 +51,3 @@ public class Email implements Serializable {
         this.c_recivers = c_recivers;
     }
 }
-

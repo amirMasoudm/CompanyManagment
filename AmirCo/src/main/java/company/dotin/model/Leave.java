@@ -6,10 +6,10 @@ import java.util.Date;
 
 @Table(name = "t_leave")
 @Entity(name = "t_leave")
-public class Leave implements Serializable {
-    @Id()
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+public class Leave extends Common implements Serializable {
+    //    @Id()
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private int id;
     @Column(columnDefinition = "date")
     private Date c_fromDate;
     @Column(columnDefinition = "date")
@@ -24,20 +24,11 @@ public class Leave implements Serializable {
     public Leave() {
     }
 
-    public Leave(int id, Date c_fromDate, Date c_toDate, CategoryElement c_status, Employe c_employe) {
-        this.id = id;
+    public Leave(Date c_fromDate, Date c_toDate, CategoryElement c_status, Employe c_employe) {
         this.c_fromDate = c_fromDate;
         this.c_toDate = c_toDate;
         this.c_status = c_status;
         this.c_employe = c_employe;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public Date getC_fromDate() {

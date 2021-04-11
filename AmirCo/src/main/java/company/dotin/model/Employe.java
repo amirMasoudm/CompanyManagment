@@ -7,65 +7,37 @@ import java.util.List;
 
 @Table(name = "t_employe")
 @Entity(name = "t_employe")
-public class Employe implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    @Column(columnDefinition = "varchar2(20)")
+public class Employe extends Common implements Serializable {
+
+    @Column(columnDefinition = "varchar2(255)")
     private String c_name;
-    @Column(columnDefinition = "varchar2(20)")
+    @Column(columnDefinition = "varchar2(255)")
     private String c_family;
-    @Column()
-    private boolean c_actication;
-    @Column(columnDefinition = "date")
-    private Date c_deleteDate;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "c_manager_Id")
     private Employe manager;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "c_roleId")
     private CategoryElement c_role;
-    @Version
-    private int c_version;
+
 
     public Employe() {
+
     }
 
-    public Employe(int id, String c_name, String c_family, boolean c_actication, Date c_deleteDate, Employe manager, CategoryElement c_role, int c_version) {
-        this.id = id;
-        this.c_name = c_name;
-        this.c_family = c_family;
-        this.c_actication = c_actication;
-        this.c_deleteDate = c_deleteDate;
-        this.manager = manager;
-        this.c_role = c_role;
-        this.c_version = c_version;
+    public Employe(String c_name, String c_family,Employe c_manager,CategoryElement c_role) {
+        this.manager=c_manager;
+        this.c_role=c_role;
+        this.c_name=c_name;
+        this.c_family=c_family;
     }
-
-    public int getId() {
-        return id;
+    public Employe(int id,String c_name, String c_family,Employe c_manager,CategoryElement c_role) {
+        this.setId(id);
+        this.manager=c_manager;
+        this.c_role=c_role;
+        this.c_name=c_name;
+        this.c_family=c_family;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public boolean isC_actication() {
-        return c_actication;
-    }
-
-    public void setC_actication(boolean c_actication) {
-        this.c_actication = c_actication;
-    }
-
-    public Date getC_deleteDate() {
-        return c_deleteDate;
-    }
-
-    public void setC_deleteDate(Date c_deleteDate) {
-        this.c_deleteDate = c_deleteDate;
-    }
-
     public String getC_name() {
         return c_name;
     }
@@ -96,14 +68,6 @@ public class Employe implements Serializable {
 
     public void setC_role(CategoryElement c_role) {
         this.c_role = c_role;
-    }
-
-    public int getC_version() {
-        return c_version;
-    }
-
-    public void setC_version(int c_version) {
-        this.c_version = c_version;
     }
 }
 
