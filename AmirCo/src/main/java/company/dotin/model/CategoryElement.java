@@ -12,7 +12,7 @@ import java.util.List;
 public class CategoryElement implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-//    @JsonIgnore
+    @JsonIgnore
     private int id;
     @Column(columnDefinition = "varchar2(255)")
     private String c_persianName;

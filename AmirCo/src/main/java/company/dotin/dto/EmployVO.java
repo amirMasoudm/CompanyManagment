@@ -1,30 +1,12 @@
 package company.dotin.dto;
 
 public class EmployVO {
-    private int id;
-
-
-
     private String name;
     private String family;
-    private int managerId;
-    private int roleId;
-    private int version;
+    private String managerName;
+    private String roleName;
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-    public int getVersion() {
-        return version;
-    }
-
-    public void setVersion(int version) {
-        this.version = version;
-    }
 
     public String getName() {
         return name;
@@ -42,19 +24,21 @@ public class EmployVO {
         this.family = family;
     }
 
-    public int getManagerId() {
-        return managerId;
+    public String getManagerName() {
+        return managerName;
     }
 
-    public void setManagerId(int managerId) {
-        this.managerId = managerId;
+    public void setManagerName(String managerName) {
+        this.managerName = managerName;
     }
 
-    public int getRoleId() {
-        return roleId;
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setRoleId(int roleId) {
-        this.roleId = roleId;
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
+
+
 }

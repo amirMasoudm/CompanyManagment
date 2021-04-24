@@ -14,7 +14,6 @@ public class CategoryRepository implements JPARepository<Category,Integer> {
     @PersistenceContext
     private EntityManager entityManager;
 
-    @Transactional
     public void save(Category category) {
         entityManager.persist(category);
     }
@@ -37,6 +36,11 @@ public class CategoryRepository implements JPARepository<Category,Integer> {
     @Override
     public void update(Category category) {
         entityManager.merge(category);
+    }
+
+    @Override
+    public void delete(Category object) {
+
     }
 
     public List<Category> findList() {

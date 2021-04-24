@@ -9,10 +9,12 @@ import java.util.List;
 public class Email extends Common implements Serializable{
     @Column(columnDefinition = "varchar2(50)")
     private String c_subject;
+    @Column(columnDefinition = "varchar2(1000)")
+    private String c_content;
     @ManyToOne
     private Employe c_sender;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinTable(name = "t_juncEmail_Employe", joinColumns = {
             @JoinColumn(name = "Email_ID", referencedColumnName = "id")},
             inverseJoinColumns = @JoinColumn(name = "empoye_Id", referencedColumnName = "id"))
@@ -21,7 +23,8 @@ public class Email extends Common implements Serializable{
     public Email() {
     }
 
-    public Email(String c_subject, Employe c_sender, List<Employe> c_recivers) {
+    public Email(String c_subject, Employe c_sender, List<Employe> c_recivers,String c_content) {
+        this.c_content=c_content;
         this.c_subject = c_subject;
         this.c_sender = c_sender;
         this.c_recivers = c_recivers;
@@ -29,6 +32,14 @@ public class Email extends Common implements Serializable{
 
     public String getC_subject() {
         return c_subject;
+    }
+
+    public String getC_content() {
+        return c_content;
+    }
+
+    public void setC_content(String c_content) {
+        this.c_content = c_content;
     }
 
     public void setC_subject(String c_subject) {

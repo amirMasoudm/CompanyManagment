@@ -14,7 +14,6 @@ public class CategoryElementRepository implements JPARepository<CategoryElement,
 
     @PersistenceContext
     private EntityManager enitityManager;
-    @Transactional
     @Override
     public void save(CategoryElement categoryElement) {
         enitityManager.persist(categoryElement);
@@ -43,5 +42,10 @@ public class CategoryElementRepository implements JPARepository<CategoryElement,
     @Override
     public void update(CategoryElement categoryElement) {
         enitityManager.merge(categoryElement);
+    }
+
+    @Override
+    public void delete(CategoryElement object) {
+
     }
 }

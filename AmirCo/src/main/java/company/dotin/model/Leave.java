@@ -2,48 +2,47 @@ package company.dotin.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Table(name = "t_leave")
 @Entity(name = "t_leave")
 public class Leave extends Common implements Serializable {
-    //    @Id()
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-//    private int id;
-    @Column(columnDefinition = "date")
-    private Date c_fromDate;
-    @Column(columnDefinition = "date")
-    private Date c_toDate;
+
+    @Column()
+    private LocalDate c_fromDate;
+    @Column()
+    private LocalDate c_toDate;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "c_statusId")
     private CategoryElement c_status;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "c_employeId")
-    private Employe c_employe;
+    private Employe c_employe_id;
 
     public Leave() {
     }
 
-    public Leave(Date c_fromDate, Date c_toDate, CategoryElement c_status, Employe c_employe) {
+    public Leave(CategoryElement c_status ,LocalDate c_fromDate, LocalDate c_toDate, Employe c_employe) {
+        this.c_status=c_status;
         this.c_fromDate = c_fromDate;
         this.c_toDate = c_toDate;
-        this.c_status = c_status;
-        this.c_employe = c_employe;
+        this.c_employe_id = c_employe;
     }
 
-    public Date getC_fromDate() {
+    public LocalDate getC_fromDate() {
         return c_fromDate;
     }
 
-    public void setC_fromDate(Date c_fromDate) {
+    public void setC_fromDate(LocalDate c_fromDate) {
         this.c_fromDate = c_fromDate;
     }
 
-    public Date getC_toDate() {
+    public LocalDate getC_toDate() {
         return c_toDate;
     }
 
-    public void setC_toDate(Date c_toDate) {
+    public void setC_toDate(LocalDate c_toDate) {
         this.c_toDate = c_toDate;
     }
 
@@ -56,10 +55,10 @@ public class Leave extends Common implements Serializable {
     }
 
     public Employe getC_employe() {
-        return c_employe;
+        return c_employe_id;
     }
 
     public void setC_employe(Employe c_employe) {
-        this.c_employe = c_employe;
+        this.c_employe_id = c_employe;
     }
 }

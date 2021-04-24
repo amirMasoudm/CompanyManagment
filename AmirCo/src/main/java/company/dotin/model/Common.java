@@ -2,7 +2,9 @@ package company.dotin.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
+
 @MappedSuperclass
 public class Common implements Serializable {
     @Id
@@ -13,9 +15,8 @@ public class Common implements Serializable {
     @Column
     private boolean c_activation;
     @Column
-    private Date  c_modification_Date_Time;
-
-    public Common(int id, int c_version, boolean c_activation, Date c_modification_Date_Time) {
+    private LocalDateTime c_modification_Date_Time;
+    public Common(int id, int c_version, boolean c_activation, LocalDateTime c_modification_Date_Time) {
         this.id = id;
         this.c_version = c_version;
         this.c_activation = c_activation;
@@ -47,7 +48,7 @@ public class Common implements Serializable {
         this.c_version = c_version;
     }
 
-    public boolean isC_activation() {
+    public boolean getC_activation() {
         return c_activation;
     }
 
@@ -55,11 +56,15 @@ public class Common implements Serializable {
         this.c_activation = c_activation;
     }
 
-    public Date getC_modification_Date_Time() {
+    public boolean isC_activation() {
+        return c_activation;
+    }
+
+    public LocalDateTime getC_modification_Date_Time() {
         return c_modification_Date_Time;
     }
 
-    public void setC_modification_Date_Time(Date c_modification_Date_Time) {
+    public void setC_modification_Date_Time(LocalDateTime c_modification_Date_Time) {
         this.c_modification_Date_Time = c_modification_Date_Time;
     }
 }
